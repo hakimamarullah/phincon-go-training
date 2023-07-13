@@ -1,0 +1,1 @@
+{"name":"Hakim","age":22, "addr": {"details": "Jalan Madrasah No.26 Pondok Cina, Beji, Depok"}, "kamu": "Hei"}

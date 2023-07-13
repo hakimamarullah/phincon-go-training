@@ -24,6 +24,7 @@ type GeometryCalc interface {
 func main() {
 	var cube GeometryCalc = &Cube{Length: 32.0}
 	var cylinder GeometryCalc = &Cylinder{Radius: 2.0, Height: 5.0}
+	
 
 	fmt.Printf("Volume of cube: %v \n", cube.volume())
 	fmt.Printf("Volume of cylinder: %v \n", cylinder.volume())

@@ -30,7 +30,3 @@ type ResponseBody struct {
 	Count   int         `json:"count"`
 	Code    int         `json:"code"`
 }
-
-func NewResponseBody(message string, data interface{}, count int, code int) *ResponseBody {
-	return &ResponseBody{Message: message, Data: data, Count: count, Code: code}
-}

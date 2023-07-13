@@ -12,15 +12,6 @@ func AddUser(user domain.User) {
 	users = append(users, user)
 }
 
-func FindUserById(id string) (bool, *domain.User) {
-	for i, user := range users {
-		if strings.EqualFold(user.Id, id) {
-			return true, &users[i]
-		}
-	}
-	return false, nil
-}
-
 func FindUserByUsername(username string) (bool, *domain.User) {
 	for i, user := range users {
 		if strings.EqualFold(user.Username, username) {
@@ -60,17 +51,6 @@ func GetAllTodosByUserId(uid string) []*domain.Todo {
 		}
 	}
 	return results
-}
-
-func UpdateTodo(newTodo domain.Todo) bool {
-	for i, todo := range todos {
-		if strings.EqualFold(todo.Id, newTodo.Id) {
-			todos = append(todos[:i], todos[i+1:]...)
-			todos = append(todos, todo)
-			return true
-		}
-	}
-	return false
 }
 
 func DeleteTodoById(id string) bool {

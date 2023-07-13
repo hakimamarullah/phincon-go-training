@@ -57,11 +57,6 @@ func Login(r *http.Request) (error, *http.Cookie) {
 	return nil, cookie
 }
 
-func GetUserById(r *http.Request) (bool, *domain.User) {
-	query := r.URL.Query()
-	return repository.FindUserById(query.Get("uid"))
-}
-
 func AddTodo(r *http.Request) (error, *domain.Todo) {
 	var todo domain.Todo
 	if err := json.NewDecoder(r.Body).Decode(&todo); err != nil {

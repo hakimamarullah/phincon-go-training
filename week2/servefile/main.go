@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.Dir("./files"))
 
 	mux := http.NewServeMux()
 	mux.Handle("/fileserver/", http.StripPrefix("/fileserver/", fs))
@@ -28,7 +28,7 @@ func main() {
 }
 
 func downloadHandler(w http.ResponseWriter, r *http.Request) {
-	path := "./static/example.html"
+	path := "./files/example.html"
 	file, err := os.Open(path)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -56,7 +56,7 @@ func uploadHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	defer file.Close()
 
-	saveFile, err := os.Create("./static/" + header.Filename)
+	saveFile, err := os.Create("./files/" + header.Filename)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
